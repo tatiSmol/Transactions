@@ -13,7 +13,11 @@ public class Account {
     }
 
     public boolean isEnoughMoney(long amount) {
-        return money - amount >= 0;
+        if (money - amount >= 0) {
+            money -= amount;
+            return true;
+        }
+        return false;
     }
 
     public void receiveMoney(long amount) {
