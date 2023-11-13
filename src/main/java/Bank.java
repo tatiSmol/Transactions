@@ -2,7 +2,6 @@ import java.util.Map;
 import java.util.Random;
 
 public class Bank {
-
     private Map<String, Account> accounts;
     private final Random random = new Random();
 
