@@ -20,7 +20,7 @@ public class Bank {
             Account sender = accounts.get(fromAccountNum);
             Account recipient = accounts.get(toAccountNum);
 
-            if (sender.isBlocked() || recipient.isBlocked()) {
+            if (sender == null || recipient == null || sender.isBlocked() || recipient.isBlocked()) {
                 return;
             }
             if (amount > 50_000 && isFraud(fromAccountNum, toAccountNum, amount)) {
@@ -35,7 +35,7 @@ public class Bank {
     public long getBalance(String accountNum) {
         synchronized (accounts) {
             Account account = accounts.get(accountNum);
-            return account.getMoney();
+            return account == null ? 0 : account.getMoney();
         }
     }
 
