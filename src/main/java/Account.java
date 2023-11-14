@@ -6,7 +6,13 @@ import lombok.Setter;
 public class Account {
     private long money;
     private String accNumber;
-    private boolean isBlocked = false;
+    private boolean isBlocked;
+
+    public Account(String accNumber, long money) {
+        this.accNumber = accNumber;
+        this.money = money;
+        this.isBlocked = false;
+    }
 
     public synchronized long getMoney() {
         return money;
